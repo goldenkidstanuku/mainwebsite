@@ -1,0 +1,24 @@
+{
+  "name": "goldenkids-school",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Golden Kids School — Modern, high-utility, responsive website and school management portal",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js",
+    "test": "node test-whatsapp-backend.js",
+    "ps": "powershell -ExecutionPolicy Bypass -File ./serve.ps1"
+  },
+  "keywords": [
+    "school-website",
+    "parent-portal",
+    "teacher-portal",
+    "school-management",
+    "vanilla-js",
+    "supabase"
+  ],
+  "author": "Golden Kids School",
+  "license": "MIT"
+}

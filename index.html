@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('theme');
+        var isDark = saved ? (saved === 'dark') : true;
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <title>Golden Kids School | English Medium School, Palangi</title>
+  <meta name="description" content="English medium education from Nursery to Grade 10 in Palangi. Practical science learning, digital smart classrooms, sports, and daily parent WhatsApp updates. Admissions open for 2026-27." />
+  <meta name="keywords" content="Golden Kids School, Palangi, English medium school, Nursery, primary school, high school, admissions, Andhra Pradesh" />
+  <meta name="author" content="Golden Kids School" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="apple-mobile-web-app-title" content="Golden Kids" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Golden Kids School" />
+  <meta property="og:title" content="Golden Kids School | English Medium School, Palangi" />
+  <meta property="og:description" content="English medium education from Nursery to Grade 10 in Palangi with digital classrooms, hands-on science activities, and daily parent WhatsApp updates." />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Golden Kids School | English Medium School, Palangi" />
+  <meta name="twitter:description" content="English medium education from Nursery to Grade 10 in Palangi with digital classrooms, hands-on science activities, and daily parent WhatsApp updates." />
+
+  <!-- Typography: Playfair Display (Brand Accent) & Poppins (Sitewide Typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- School Logo Favicon -->
+  <link rel="icon" href="goldenkids logo.jfif" type="image/jpeg" />
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "School",
+    "name": "Golden Kids English Medium School",
+    "description": "English medium education from Nursery to Grade 10 in Palangi with digital classrooms, activity-based science learning, and daily parent updates.",
+    "slogan": "One child, one teacher, one book, one pen can change the world.",
+    "telephone": "+91 86591 63665",
+    "email": "info@goldenkids.co.in",
+    "url": "https://www.goldenkids.co.in",
+    "founder": {
+      "@type": "Person",
+      "name": "Smt. B.UMA",
+      "jobTitle": "Secretary & Correspondent"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Near K.Savaram, Mutyalamma Temple",
+      "addressLocality": "Palangi",
+      "addressRegion": "Andhra Pradesh",
+      "addressCountry": "IN"
+    },
+    "openingHours": "Mo-Sa 08:00-16:00"
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+  <!-- Ambient Floating Watermark Emblem -->
+  <div class="ambient-watermark-bg" aria-hidden="true">
+    <div class="ambient-watermark-crest"></div>
+  </div>
+  <div id="app"></div>
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <noscript>
+    <div style="padding:2.5rem 1.5rem;text-align:center;font-family:'Poppins',system-ui,sans-serif;background:#0a0a0a;color:#F6F7F5;max-width:600px;margin:3rem auto;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,0.8);border:1px solid rgba(56,189,248,0.3)">
+      <h2 style="font-size:1.5rem;margin-bottom:0.75rem;color:#38bdf8">JavaScript Required</h2>
+      <p style="color:#cbd5e1;line-height:1.6">Please enable JavaScript in your browser to experience the Golden Kids School portal and academic website.</p>
+    </div>
+  </noscript>
+
+  <!-- Hardware Performance Fallback -->
+  <script src="perf-detector.js"></script>
+  <!-- Supabase Client Library (Supports remote backend or local storage mode) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <!-- Golden Kids School Application Logic -->
+  <script src="app.js"></script>
+
+  <!-- Live Server Auto-Reload Client (detects local file edits instantly when livereload server is running) -->
+  <script>
+    (function() {
+      if (location.protocol === 'file:') return;
+      let lastTimestamp = null;
+      let failCount = 0;
+      function checkLiveChanges() {
+        if (failCount > 3) return; // Stop polling on static hosts without live reload server
+        fetch('/__livereload?_t=' + Date.now())
+          .then(function(res) {
+            if (!res.ok) throw new Error('No live reload endpoint');
+            return res.json();
+          })
+          .then(function(data) {
+            failCount = 0;
+            if (lastTimestamp !== null && data.timestamp && data.timestamp !== lastTimestamp) {
+              console.log('[LiveServer] Code changes detected! Auto-reloading page...');
+              location.reload();
+            }
+            lastTimestamp = data.timestamp;
+            setTimeout(checkLiveChanges, 800);
+          })
+          .catch(function() {
+            failCount++;
+            if (failCount <= 3) {
+              setTimeout(checkLiveChanges, 2000);
+            }
+          });
+      }
+      checkLiveChanges();
+    })();
+  </script>
+</body>
+</html>
